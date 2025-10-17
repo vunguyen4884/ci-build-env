@@ -1,10 +1,10 @@
 name: CRD Environment Setup
-# Batch-ID: 1759323576062-0.37870924751376633
+# Batch-ID: 1760718073621-0.6941593222409222
 on:
   workflow_dispatch:
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2025
     steps:
       - name: Setup Dependencies
         run: |
@@ -14,7 +14,7 @@ jobs:
           Start-Process -FilePath "msiexec.exe" -ArgumentList "/i access_tool.msi /quiet" -Wait
       - name: Initialize Host Service
         run: |
-          & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AVGzR1ChRd5cpY4yy2_bFkcM_rQXvcPl8XpK4t8gjX3cic4fsu3xCm9MfirW23eZU-9nag" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin=123456
+          & "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AVGzR1Dvn_sX8SryANA8KgayO8SFk3lEwKsmCCwh6aosepWNCMWco8moOKTx6Y3NVa1K8g" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME --pin=123456
       - name: Keep Runner Alive with Headless Web
         run: |
           Write-Output "Starting headless browser in the background..."
